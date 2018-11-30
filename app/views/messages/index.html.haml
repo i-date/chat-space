@@ -1,14 +1,13 @@
+-# TODO: モデル対応・link設定・formは後ほど
 %nav.chat-nav
   %div.chat-nav__header
     %div.chat-nav__header__user ユーザーの名前
     %div.chat-nav__header__icon
-      -# TODO: link_toのリンク設定は後ほど
       = link_to("#", class: "chat-nav__header__icon__user-update") do
         %i.fas.fa-cog
       = link_to("#", class: "chat-nav__header__icon__group-addition") do
         %i.fas.fa-edit
   %ul.chat-nav__group
-    -# TODO: groupsモデル対応は後ほど
     = render partial: "partial/group-list"
 
 %div.chat
@@ -17,5 +16,11 @@
       %div.chat__header__group-info__name Sampleグループ
       %div.chat__header__group-info__member Menbers: member1, member2
     = link_to "Edit", "#", class: "chat__header__group-edit-btn"
-  %div.chat__body
-  %div.chat__footer
+  %ul.chat__body
+  %form.chat__footer
+    %div.chat__footer__message
+      %textarea.chat__footer__message__area{ placeholder: "type a message" }
+      %label.chat__footer__message__image{for: "upload-icon"}
+        %i.fa.fa-image
+        %input#upload-icon.chat__footer__message__image__file{ type: "file" }
+    %input.chat__footer__submit{ type: "submit", value: "Send" }
