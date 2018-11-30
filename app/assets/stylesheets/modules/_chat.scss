@@ -1,0 +1,36 @@
+.chat {
+  position: relative;
+  float: right;
+  width: calc(100% - 300px);
+  height: 100%;
+}
+
+.chat__header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: $chat-header-height;
+  border-bottom: solid 1px #EEE;
+  padding: 0 $chat-padding-width;
+}
+
+.chat__body {
+  overflow-y: scroll;
+  position: absolute;
+  top: $chat-header-height;
+  width: 100%;
+  height: calc( 100% - #{$chat-header-height} - #{$chat-footer-height} );
+  background-color: #FAFAFA;
+  padding: 46px $chat-padding-width;
+}
+
+.chat__footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: $chat-footer-height;
+  background-color: #DDD;
+  padding: 20px $chat-padding-width;
+}
