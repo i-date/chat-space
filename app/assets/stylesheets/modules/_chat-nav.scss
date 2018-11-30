@@ -1,0 +1,59 @@
+.chat-nav {
+  float: left;
+  width: 300px;
+  height: 100%;
+  background-color: #2F3E51;
+}
+
+.chat-nav__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: $chat-nav-header-height;
+  background-color: #253141;
+  padding: 0 $chat-nav-padding-width;
+  @include clear;
+}
+
+.chat-nav__header__user {
+  float: left;
+  width: 200px;
+  color: $chat-nav-font-color;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.chat-nav__header__icon {
+  float: right;
+  @include clear;
+}
+
+.chat-nav__header__icon__group-addition, .chat-nav__header__icon__user-update {
+  float: right;
+  margin-left: 8px;
+  color: $chat-nav-font-color;
+}
+
+.chat-nav__group {
+  overflow-y: scroll;
+  width: 100%;
+  height: calc( 100% - #{$chat-nav-header-height} );
+  padding: 20px 0;
+}
+
+.chat-nav__group__list {
+  width: 100%;
+  padding: 0 $chat-nav-padding-width 40px;
+}
+
+.chat-nav__group__list__group-name {
+  margin-bottom: 5px;
+  color: $chat-nav-font-color;
+  font-size: 15px;
+}
+
+.chat-nav__group__list__new-message {
+  color: $chat-nav-font-color;
+  font-size: 11px;
+}
