@@ -57,6 +57,30 @@
   padding: 26px $chat-padding-width;
 }
 
+.chat__body__list {
+  width: 100%;
+  padding: 20px 0;
+  font-size: 0; // 要素間に勝手に設定される余白を削除するための記述
+}
+
+.chat__body__list__user-name {
+  padding-right: 10px;
+  color: $font-color-dark;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.chat__body__list__creation-time {
+  color: #999;
+  font-size: 12px;
+}
+
+.chat__body__list__message {
+  margin-top: 10px;
+  color: $font-color-dark;
+  font-size: 14px;
+}
+
 .chat__footer {
   @include justify-space-between;
   position: absolute;
