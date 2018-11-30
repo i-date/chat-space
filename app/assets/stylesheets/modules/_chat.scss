@@ -6,8 +6,7 @@
 }
 
 .chat__header {
-  display: flex;
-  justify-content: space-between;
+  @include justify-space-between;
   position: absolute;
   top: 0;
   left: 0;
@@ -37,7 +36,7 @@
 }
 
 .chat__header__group-edit-btn {
-  display: flex;
+  @include justify-space-between;
   align-items: center;
   height: 40px;
   margin-top: 28px;
@@ -55,10 +54,11 @@
   width: 100%;
   height: calc( 100% - #{$chat-header-height} - #{$chat-footer-height} );
   background-color: #FAFAFA;
-  padding: 46px $chat-padding-width;
+  padding: 26px $chat-padding-width;
 }
 
 .chat__footer {
+  @include justify-space-between;
   position: absolute;
   bottom: 0;
   left: 0;
@@ -66,4 +66,46 @@
   height: $chat-footer-height;
   background-color: #DDD;
   padding: 20px $chat-padding-width;
+}
+
+.chat__footer__message {
+  position: relative;
+  height: 100%;
+  width: calc( 100% - 115px ); // 115px = chat__footer__submitのwidth + margin-right
+  background-color: #FFF;
+}
+
+.chat__footer__message__area {
+  @include align-center;
+  height: 100%;
+  width: 100%;
+  padding: 13px 40px 13px 10px;
+  border: none;
+  color: $font-color-dark;
+  font-size: 16px;
+  line-height: 1.5;
+  resize: none;
+}
+
+.chat__footer__message__image {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+
+  i {
+    @include hover();
+  }
+}
+
+.chat__footer__message__image__file {
+  display: none;
+}
+
+.chat__footer__submit {
+  width: 100px;
+  height: 100%;
+  background-color: #38AEF0;
+  color: #FFF;
+  @include hover();
 }
