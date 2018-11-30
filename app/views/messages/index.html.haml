@@ -17,6 +17,7 @@
       %div.chat__header__group-info__member Menbers: member1, member2
     = link_to "Edit", "#", class: "chat__header__group-edit-btn"
   %ul.chat__body
+    = render partial: "partial/chat-messages"
   %form.chat__footer
     %div.chat__footer__message
       %textarea.chat__footer__message__area{ placeholder: "type a message" }
