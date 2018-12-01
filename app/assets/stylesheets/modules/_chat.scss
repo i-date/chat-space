@@ -14,37 +14,37 @@
   height       : $chat__header-height;
   border-bottom: solid 1px #EEE;
   padding      : 0 $chat__padding--lateral;
-}
 
-.chat__header__group-info {
-  width     : calc(100% - 100px);
-  height    : 100%;
-  overflow-x: scroll;
-}
+  &__group-info {
+    width     : calc(100% - 100px);
+    height    : 100%;
+    overflow-x: scroll;
 
-.chat__header__group-info__name {
-  margin-top: 35px;
-  height    : 20px;
-  color     : #333;
-  font-size : 20px;
-}
+    &__name {
+      margin-top: 35px;
+      height    : 20px;
+      color     : #333;
+      font-size : 20px;
+    }
 
-.chat__header__group-info__member {
-  margin-top: 15px;
-  color     : #999;
-  font-size : 12px;
-}
+    &__member {
+      margin-top: 15px;
+      color     : #999;
+      font-size : 12px;
+    }
+  }
 
-.chat__header__group-edit-btn {
-  @include justify-space-between;
-  align-items    : center;
-  height         : 40px;
-  margin-top     : 28px;
-  padding        : 0 20px;
-  border         : solid 2px $blue;
-  text-decoration: none;
-  color          : $blue;
-  font-size      : 14px;
+  &__group-edit-btn {
+    @include justify-space-between;
+    align-items    : center;
+    height         : 40px;
+    margin-top     : 28px;
+    padding        : 0 20px;
+    border         : solid 2px $blue;
+    text-decoration: none;
+    color          : $blue;
+    font-size      : 14px;
+  }
 }
 
 .chat__body {
@@ -55,36 +55,39 @@
   height          : calc(100% - #{$chat__header-height} - #{$chat__footer-height});
   background-color: #FAFAFA;
   padding         : 26px $chat__padding--lateral;
-}
 
-.chat__body__list {
-  width    : 100%;
-  padding  : 20px 0;
-  font-size: 0;       // 要素間に勝手に設定される余白を削除するための記述、親要素でfont-sizeを0に指定して子要素でfont-sizeを改めて設定
-    .chat__body__list__user-name {
-      font-size: 16px;
+  &__list {
+    width    : 100%;
+    padding  : 20px 0;
+    font-size: 0;       // 要素間に勝手に設定される余白を削除するための記述、親要素でfont-sizeを0に指定して子要素でfont-sizeを改めて設定
+
+    &__user-name {
+      padding-right: 10px;
+      color        : $font--dark;
+      font-weight  : bold;
+
+      .chat__body__list & {
+        font-size: 16px;
+      }
     }
-    .chat__body__list__creation-time {
-      font-size: 12px;
+
+    &__creation-time {
+      color: #999;
+
+      .chat__body__list & {
+        font-size: 12px;
+      }
     }
-    .chat__body__list__message {
-      font-size: 14px;
+
+    &__message {
+      margin-top: 10px;
+      color     : $font--dark;
+
+      .chat__body__list & {
+        font-size: 14px;
+      }
     }
-}
-
-.chat__body__list__user-name {
-  padding-right: 10px;
-  color        : $font--dark;
-  font-weight  : bold;
-}
-
-.chat__body__list__creation-time {
-  color: #999;
-}
-
-.chat__body__list__message {
-  margin-top: 10px;
-  color     : $font--dark;
+  }
 }
 
 .chat__footer {
@@ -96,46 +99,46 @@
   height          : $chat__footer-height;
   background-color: #DDD;
   padding         : 20px $chat__padding--lateral;
-}
 
-.chat__footer__message {
-  position        : relative;
-  height          : 100%;
-  width           : calc(100% - 115px);  // 115px = chat__footer__submitのwidth + margin-right
-  background-color: #FFF;
-}
+  &__message {
+    position        : relative;
+    height          : 100%;
+    width           : calc(100% - 115px);  // 115px = chat__footer__submitのwidth + margin-right
+    background-color: #FFF;
 
-.chat__footer__message__area {
-  @include align-center;
-  height     : 100%;
-  width      : 100%;
-  padding    : 13px 40px 13px 10px;
-  border     : none;
-  color      : $font--dark;
-  font-size  : 16px;
-  line-height: 1.5;
-  resize     : none;
-}
+    &__area {
+      @include align-center;
+      height     : 100%;
+      width      : 100%;
+      padding    : 13px 40px 13px 10px;
+      border     : none;
+      color      : $font--dark;
+      font-size  : 16px;
+      line-height: 1.5;
+      resize     : none;
+    }
 
-.chat__footer__message__image {
-  position : absolute;
-  top      : 50%;
-  right    : 10px;
-  transform: translateY(-50%);
+    &__image {
+      position : absolute;
+      top      : 50%;
+      right    : 10px;
+      transform: translateY(-50%);
 
-  i {
+      i {
+        @include hover();
+      }
+
+      &__file {
+        display: none;
+      }
+    }
+  }
+
+  &__submit {
+    width           : 100px;
+    height          : 100%;
+    background-color: $blue;
+    color           : $font--white;
     @include hover();
   }
-}
-
-.chat__footer__message__image__file {
-  display: none;
-}
-
-.chat__footer__submit {
-  width           : 100px;
-  height          : 100%;
-  background-color: $blue;
-  color           : $font--white;
-  @include hover();
 }
