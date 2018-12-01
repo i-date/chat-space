@@ -1,15 +1,15 @@
 // 共通で使用する変数
-$font-color-dark: #434A54;
+$font--white: #FFF;
+$font--dark : #434A54;
 
 // .alertと.main__height-adjustmentで使用する変数
 $alert-height: 30px;
 
 // .chat-navで使用する変数
-$chat-nav-font-color: #FFF;
-$chat-nav-header-height: 100px;
-$chat-nav-padding-width: 20px;
+$chat-nav__header-height   : 100px;
+$chat-nav__padding--lateral: 20px;
 
 // .chatで使用する変数
-$chat-padding-width: 40px;
-$chat-header-height: 100px;
-$chat-footer-height: 90px;
+$chat__padding--lateral: 40px;
+$chat__header-height   : 100px;
+$chat__footer-height   : 90px;
