@@ -2,23 +2,23 @@
   &after {
     content: "";
     display: block;
-    clear: both;
+    clear  : both;
   }
 }
 
 @mixin justify-space-between {
-  display: flex;
+  display        : flex;
   justify-content: space-between;
 }
 
 @mixin align-center {
-  display: flex;
+  display    : flex;
   align-items: center;
 }
 
 @mixin hover($opacity-value: 1) {
   &:hover {
     opacity: $opacity-value;
-    cursor: pointer;
+    cursor : pointer;
   }
 }
