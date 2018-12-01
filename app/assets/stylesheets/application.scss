@@ -1,0 +1,12 @@
+// 全体に関わるscssをインポート
+@import "./reset";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+@import "config/variable";
+@import "mixin/mixin";
+@import "modules/common";
+
+// 個別ビューに対応するscssをインポート
+@import "modules/alert";
+@import "modules/chat_nav";
+@import "modules/chat";

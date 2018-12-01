@@ -1,0 +1,24 @@
+@mixin clear {
+  &after {
+    content: "";
+    display: block;
+    clear  : both;
+  }
+}
+
+@mixin justify-space-between {
+  display        : flex;
+  justify-content: space-between;
+}
+
+@mixin align-center {
+  display    : flex;
+  align-items: center;
+}
+
+@mixin hover($opacity-value: 1) {
+  &:hover {
+    opacity: $opacity-value;
+    cursor : pointer;
+  }
+}

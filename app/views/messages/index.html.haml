@@ -1,0 +1,34 @@
+-# TODO: モデル対応・link設定・formは後ほど
+%nav.chat-nav
+  %div.chat-nav__header
+    -# TODO: userモデル対応
+    %div.chat-nav__header__user ユーザーの名前
+    %div.chat-nav__header__icon
+      -# TODO: path・HTTPメソッド設定
+      = link_to("#", class: "chat-nav__header__icon__user-update") do
+        %i.fas.fa-cog
+      = link_to("#", class: "chat-nav__header__icon__group-addition") do
+        %i.fas.fa-edit
+  %ul.chat-nav__group
+    -# TODO: groupモデル対応、変数設定
+    = render partial: "partial/group_list"
+
+%div.chat
+  %div.chat__header
+    %div.chat__header__group-info
+      -# TODO: group・memberモデル対応
+      %div.chat__header__group-info__name Sampleグループ
+      %div.chat__header__group-info__member Menbers: member1, member2
+    -# TODO: path・HTTPメソッド設定
+    = link_to "Edit", "#", class: "chat__header__group-edit-btn"
+  %div.chat__body
+    -# TODO: messageモデル対応
+    = render partial: "partial/chat_messages"
+  -# form_forに書き換え
+  %form.chat__footer
+    %div.chat__footer__message
+      %textarea.chat__footer__message__area{ placeholder: "type a message" }
+      %label.chat__footer__message__image{for: "upload-icon"}
+        %i.far.fa-image.fa-lg
+        %input#upload-icon.chat__footer__message__image__file{ type: "file" }
+    %input.chat__footer__submit{ type: "submit", value: "Send" }
