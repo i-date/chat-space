@@ -5,8 +5,8 @@
 .main {
   width : 100vw;
   height: 100vh;
-}
 
-.main__height-adjustment {
-  height: calc( 100vh - #{$alert-height} );
+  &__height-adjustment {
+    height: calc(100vh - #{$alert-height});
+  }
 }
