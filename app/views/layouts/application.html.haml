@@ -7,6 +7,7 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
+    -# TODO: 変数messageに設定するalertメッセージの取得対応
     = render partial: "partial/alert", locals: { message: "チャットグループが作成されました。" }
     %main#main.main.main__height-adjustment{ role: "main" }
       = yield
