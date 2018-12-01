@@ -1,120 +1,120 @@
 .chat {
   position: relative;
-  float: right;
-  width: calc(100% - 300px);
-  height: 100%;
+  float   : right;
+  width   : calc(100% - 300px);
+  height  : 100%;
 }
 
 .chat__header {
   @include justify-space-between;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: $chat-header-height;
+  position     : absolute;
+  top          : 0;
+  left         : 0;
+  width        : 100%;
+  height       : $chat__header-height;
   border-bottom: solid 1px #EEE;
-  padding: 0 $chat-padding-width;
+  padding      : 0 $chat__padding-lateral;
 }
 
 .chat__header__group-info {
-  width: calc( 100% - 100px );
-  height: 100%;
+  width     : calc(100% - 100px);
+  height    : 100%;
   overflow-x: scroll;
 }
 
 .chat__header__group-info__name {
   margin-top: 35px;
-  height: 20px;
-  color: #333;
-  font-size: 20px;
+  height    : 20px;
+  color     : #333;
+  font-size : 20px;
 }
 
 .chat__header__group-info__member {
   margin-top: 15px;
-  color: #999;
-  font-size: 12px;
+  color     : #999;
+  font-size : 12px;
 }
 
 .chat__header__group-edit-btn {
   @include justify-space-between;
-  align-items: center;
-  height: 40px;
-  margin-top: 28px;
-  padding: 0 20px;
-  border: solid 1px #38AEF0;
+  align-items    : center;
+  height         : 40px;
+  margin-top     : 28px;
+  padding        : 0 20px;
+  border         : solid 2px $blue;
   text-decoration: none;
-  color: #38AEF0;
-  font-size: 12px;
+  color          : $blue;
+  font-size      : 14px;
 }
 
 .chat__body {
-  overflow-y: scroll;
-  position: absolute;
-  top: $chat-header-height;
-  width: 100%;
-  height: calc( 100% - #{$chat-header-height} - #{$chat-footer-height} );
+  overflow-y      : scroll;
+  position        : absolute;
+  top             : $chat__header-height;
+  width           : 100%;
+  height          : calc(100% - #{$chat__header-height} - #{$chat__footer-height});
   background-color: #FAFAFA;
-  padding: 26px $chat-padding-width;
+  padding         : 26px $chat__padding--lateral;
 }
 
 .chat__body__list {
-  width: 100%;
-  padding: 20px 0;
-  font-size: 0; // 要素間に勝手に設定される余白を削除するための記述
+  width    : 100%;
+  padding  : 20px 0;
+  font-size: 0;       // 要素間に勝手に設定される余白を削除するための記述
 }
 
 .chat__body__list__user-name {
   padding-right: 10px;
-  color: $font-color-dark;
-  font-size: 16px;
-  font-weight: bold;
+  color        : $font--dark;
+  font-size    : 16px;
+  font-weight  : bold;
 }
 
 .chat__body__list__creation-time {
-  color: #999;
+  color    : #999;
   font-size: 12px;
 }
 
 .chat__body__list__message {
   margin-top: 10px;
-  color: $font-color-dark;
-  font-size: 14px;
+  color     : $font--dark;
+  font-size : 14px;
 }
 
 .chat__footer {
   @include justify-space-between;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: $chat-footer-height;
+  position        : absolute;
+  bottom          : 0;
+  left            : 0;
+  width           : 100%;
+  height          : $chat__footer-height;
   background-color: #DDD;
-  padding: 20px $chat-padding-width;
+  padding         : 20px $chat__padding--lateral;
 }
 
 .chat__footer__message {
-  position: relative;
-  height: 100%;
-  width: calc( 100% - 115px ); // 115px = chat__footer__submitのwidth + margin-right
+  position        : relative;
+  height          : 100%;
+  width           : calc(100% - 115px);  // 115px = chat__footer__submitのwidth + margin-right
   background-color: #FFF;
 }
 
 .chat__footer__message__area {
   @include align-center;
-  height: 100%;
-  width: 100%;
-  padding: 13px 40px 13px 10px;
-  border: none;
-  color: $font-color-dark;
-  font-size: 16px;
+  height     : 100%;
+  width      : 100%;
+  padding    : 13px 40px 13px 10px;
+  border     : none;
+  color      : $font--dark;
+  font-size  : 16px;
   line-height: 1.5;
-  resize: none;
+  resize     : none;
 }
 
 .chat__footer__message__image {
-  position: absolute;
-  top: 50%;
-  right: 10px;
+  position : absolute;
+  top      : 50%;
+  right    : 10px;
   transform: translateY(-50%);
 
   i {
@@ -127,9 +127,9 @@
 }
 
 .chat__footer__submit {
-  width: 100px;
-  height: 100%;
-  background-color: #38AEF0;
-  color: #FFF;
+  width           : 100px;
+  height          : 100%;
+  background-color: $blue;
+  color           : $font--white;
   @include hover();
 }
