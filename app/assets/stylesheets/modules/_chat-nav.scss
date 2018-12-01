@@ -1,59 +1,57 @@
 .chat-nav {
-  float: left;
-  width: 300px;
+  float : left;
+  width : 300px;
   height: 100%;
-  background-color: #2F3E51;
 }
 
 .chat-nav__header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  height: $chat-nav-header-height;
+  @include justify-space-between;
+  align-items     : center;
+  width           : 100%;
+  height          : $chat-nav__header-height;
   background-color: #253141;
-  padding: 0 $chat-nav-padding-width;
-  @include clear;
+  padding         : 0 $chat-nav__padding--lateral;
 }
 
 .chat-nav__header__user {
-  float: left;
-  width: 200px;
-  color: $chat-nav-font-color;
-  font-size: 16px;
+  width      : 200px;
+  color      : $font--white;
+  font-size  : 16px;
   font-weight: bold;
 }
 
 .chat-nav__header__icon {
-  float: right;
   @include clear;
 }
 
 .chat-nav__header__icon__group-addition, .chat-nav__header__icon__user-update {
-  float: right;
+  float      : right;
   margin-left: 8px;
-  color: $chat-nav-font-color;
+  color      : $font--white;
 }
 
 .chat-nav__group {
   overflow-y: scroll;
-  width: 100%;
-  height: calc( 100% - #{$chat-nav-header-height} );
-  padding: 20px 0;
+  width     : 100%;
+  height    : calc( 100% - #{$chat-nav__header-height} );
 }
 
 .chat-nav__group__list {
-  width: 100%;
-  padding: 0 $chat-nav-padding-width 40px;
+  display         : block;
+  width           : 100%;
+  padding         : 20px $chat-nav__padding--lateral;
+  background-color: #2F3E51;
+  text-decoration : none;
+  @include hover(0.9);
 }
 
 .chat-nav__group__list__group-name {
   margin-bottom: 5px;
-  color: $chat-nav-font-color;
-  font-size: 15px;
+  color        : $font--white;
+  font-size    : 15px;
 }
 
 .chat-nav__group__list__new-message {
-  color: $chat-nav-font-color;
+  color    : $font--white;
   font-size: 11px;
 }
