@@ -1,13 +1,11 @@
 -# TODO: モデル対応・link設定・formは後ほど
 %nav.chat-nav
   %div.chat-nav__header
-    -# TODO: userモデル対応
     %div.chat-nav__header__user= current_user.name
     %div.chat-nav__header__icon
-      -# TODO: path・HTTPメソッド設定
-      = link_to("#", class: "chat-nav__header__icon__user-update") do
+      = link_to edit_user_path(current_user), class: "chat-nav__header__icon__user-update" do
         %i.fas.fa-cog
-      = link_to edit_user_path(current_user), class: "chat-nav__header__icon__group-addition" do
+      = link_to new_group_path(current_user), class: "chat-nav__header__icon__group-addition" do
         %i.fas.fa-edit
   %ul.chat-nav__group
     -# TODO: groupモデル対応、変数設定
