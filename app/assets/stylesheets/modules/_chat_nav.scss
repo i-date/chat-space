@@ -31,9 +31,10 @@
 }
 
 .chat-nav__group {
-  overflow-y: scroll;
-  width     : 100%;
-  height    : calc( 100% - #{$chat-nav__header-height} );
+  overflow-y      : scroll;
+  width           : 100%;
+  height          : calc( 100% - #{$chat-nav__header-height} );
+  background-color: #2F3E51;
 
   &__list {
     display         : block;

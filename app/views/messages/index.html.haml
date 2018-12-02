@@ -18,7 +18,7 @@
       %div.chat__header__group-info__name Sampleグループ
       %div.chat__header__group-info__member Menbers: member1, member2
     -# TODO: path・HTTPメソッド設定
-    = link_to "Edit", "#", class: "chat__header__group-edit-btn"
+    = link_to "Edit", edit_group_path(:id), class: "chat__header__group-edit-btn"
   %div.chat__body
     -# TODO: messageモデル対応
     = render partial: "partial/chat_messages"
