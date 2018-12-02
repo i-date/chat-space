@@ -8,6 +8,6 @@
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
     -# TODO: 変数messageに設定するalertメッセージの取得対応
-    = render partial: "partial/alert", locals: { message: "チャットグループが作成されました。" }
-    %main#main.main.main__height-adjustment{ role: "main" }
+    = render partial: "partial/notification"
+    %main#main.main{ role: "main" }
       = yield
