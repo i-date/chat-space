@@ -19,6 +19,7 @@
     width     : calc(100% - 100px);
     height    : 100%;
     overflow-x: scroll;
+    @include scroll-bar-hidden;
 
     &__name {
       margin-top: 35px;
@@ -55,6 +56,7 @@
   height          : calc(100% - #{$chat__header-height} - #{$chat__footer-height});
   background-color: #FAFAFA;
   padding         : 26px $chat__padding--lateral;
+  @include scroll-bar;
 
   &__list {
     width    : 100%;
