@@ -1,6 +1,8 @@
--# messageモデル対応
-- 10.times do
-  %li.chat__body__list
-    %span.chat__body__list__user-name member1
-    %span.chat__body__list__creation-time 2018/11/30 16:31:35
-    %div.chat__body__list__message sample message
+%li.chat__body__list
+  %span.chat__body__list__user-name
+    = message.user.name
+  %span.chat__body__list__creation-time
+    = format_posted_time(message.created_at)
+  %div.chat__body__list__message
+    = message.body if message.body.present?
+    = image_tag message.image.url if message.image.present?
