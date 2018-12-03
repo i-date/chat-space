@@ -14,15 +14,11 @@
 %div.chat
   %div.chat__header
     %div.chat__header__group-info
-      -# TODO: group・memberモデル対応
-      %div.chat__header__group-info__name Sampleグループ
-      %div.chat__header__group-info__member Menbers: member1, member2
-    -# TODO: path・HTTPメソッド設定
+      %div.chat__header__group-info__name= @group.name
+      %div.chat__header__group-info__member= "Menbers: #{@members}"
     = link_to "Edit", edit_group_path(:group_id), class: "chat__header__group-edit-btn"
   %div.chat__body
-    -# TODO: messageモデル対応
-    = render partial: "partial/chat_messages"
-  -# form_forに書き換え
+    = render partial: "partial/chat_messages", collection: @messages, as: "message"
   = form_for [@group, @message], html: { class: "chat__footer" } do |f|
     %div.chat__footer__message
       = f.text_field :body, class: "chat__footer__message__area", placeholder: "type a message"
