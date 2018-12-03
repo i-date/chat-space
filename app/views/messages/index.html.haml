@@ -1,26 +1,24 @@
--# TODO: モデル対応・link設定・formは後ほど
 %nav.chat-nav
-  %div.chat-nav__header
-    %div.chat-nav__header__user= current_user.name
-    %div.chat-nav__header__icon
+  .chat-nav__header
+    .chat-nav__header__user= current_user.name
+    .chat-nav__header__icon
       = link_to edit_user_path(current_user), class: "chat-nav__header__icon__user-update" do
         %i.fas.fa-cog
       = link_to new_group_path(current_user), class: "chat-nav__header__icon__group-addition" do
         %i.fas.fa-edit
   %ul.chat-nav__group
-    -# TODO: groupモデル対応、変数設定
     = render partial: "partial/group_list"
 
-%div.chat
-  %div.chat__header
-    %div.chat__header__group-info
-      %div.chat__header__group-info__name= @group.name
-      %div.chat__header__group-info__member= "Menbers: #{@members}"
+.chat
+  .chat__header
+    .chat__header__group-info
+      .chat__header__group-info__name= @group.name
+      .chat__header__group-info__member= "Menbers: #{@members}"
     = link_to "Edit", edit_group_path(:group_id), class: "chat__header__group-edit-btn"
-  %div.chat__body
+  .chat__body
     = render partial: "partial/chat_messages", collection: @messages, as: "message"
   = form_for [@group, @message], html: { class: "chat__footer" } do |f|
-    %div.chat__footer__message
+    .chat__footer__message
       = f.text_field :body, class: "chat__footer__message__area", placeholder: "type a message"
       = f.label :image, class: "chat__footer__message__image" do
         %i.far.fa-image.fa-lg
