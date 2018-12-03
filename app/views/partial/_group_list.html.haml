@@ -1,4 +1,6 @@
 - current_user.groups.each do |group|
   = link_to group_messages_path(group), class: "chat-nav__group__list" do
-    %div.chat-nav__group__list__group-name= group.name
-    %div.chat-nav__group__list__new-message メッセージはまだありません。
+    .chat-nav__group__list__group-name
+      = group.name
+    .chat-nav__group__list__new-message
+      = group.last_message

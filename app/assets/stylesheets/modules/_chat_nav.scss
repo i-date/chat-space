@@ -35,6 +35,7 @@
   width           : 100%;
   height          : calc( 100% - #{$chat-nav__header-height} );
   background-color: #2F3E51;
+  @include scroll-bar;
 
   &__list {
     display         : block;
