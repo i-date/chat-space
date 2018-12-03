@@ -1,9 +1,9 @@
 class MessagesController < ApplicationController
-  bdefore_action :set_group
+  before_action :set_group
 
   def index
-    @message = message.new
-    @messages = @group.messages.include(:user)
+    @message = Message.new
+    @messages = @group.messages.includes(:user)
   end
 
   def create
