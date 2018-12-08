@@ -17,7 +17,7 @@
     = link_to "Edit", edit_group_path(:group_id), class: "chat__header__group-edit-btn"
   .chat__body
     = render partial: "partial/chat_messages", collection: @messages, as: "message"
-  = form_for [@group, @message], html: { class: "chat__footer" } do |f|
+  = form_for [@group, @message], html: { id: "message-form", class: "chat__footer" } do |f|
     .chat__footer__message
       = f.text_field :body, class: "chat__footer__message__area", placeholder: "type a message"
       = f.label :image, class: "chat__footer__message__image" do
