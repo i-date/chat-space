@@ -16,10 +16,10 @@
   align-items: center;
 }
 
-@mixin hover($opacity-value: 1) {
+@mixin hover($value: 15%) {
   &:hover {
-    opacity: $opacity-value;
-    cursor : pointer;
+    background-color: lighten($chat-nav__back-color, $value);
+    cursor          : pointer;
   }
 }
 
@@ -31,9 +31,8 @@
 
   &::-webkit-scrollbar-thumb {
     background-color: gray;
-    // opacity         : 0.7;
-    border-radius: 8px;
-    box-shadow   : 0 0 0 1px rgba(255, 255, 255, .3);
+    border-radius   : 8px;
+    box-shadow      : 0 0 0 1px rgba(255, 255, 255, .3);
   }
 }
 
