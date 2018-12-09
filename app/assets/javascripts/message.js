@@ -10,21 +10,13 @@ $(function(){
     return formatTime
   }
 
-  function imageUrl(url) {
-    if (url !== null) {
-      return `<img src="${url}">`
-    } else {
-      return ``
-    }
-  }
-
   function buildHTML(message) {
     var html = `<li class="chat__body__list">
                   <span class="chat__body__list__user-name">${ message.user_name }</span>
                   <span class="chat__body__list__creation-time">${ timeFormat(message.created_at) }</span>
                   <div class="chat__body__list__message">`
-                    + `<div>${message.body}</div>`
-                    + `${ imageUrl(message.image_url) }`
+                    + `<div class="chat__body__list__message__body">${message.body}</div>`
+                    + `${message.image_url ? `<img src="${message.image_url}">` : ``}`
                   + `</div>
                 </li>`
     return html;
