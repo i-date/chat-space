@@ -1,8 +1,4 @@
-$(window).load(function () {
-  $(".chat__body").animate({
-    scrollTop: $(".chat__body")[0].scrollHeight
-  }, 0);
-
+$(function () {
   function buildHTML(message) {
     var html = `<li class="chat__body__list">
                   <span class="chat__body__list__user-name">${ message.user_name }</span>
