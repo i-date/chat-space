@@ -2,9 +2,7 @@ $(window).load(function () {
   $(".chat__body").animate({
     scrollTop: $(".chat__body")[0].scrollHeight
   }, 0);
-});
 
-$(function(){
   function buildHTML(message) {
     var html = `<li class="chat__body__list">
                   <span class="chat__body__list__user-name">${ message.user_name }</span>
@@ -41,11 +39,11 @@ $(function(){
     .done(function (data) {
       var html = buildHTML(data);
       var groupNewMessage = buildGroupNewMessage(data.body);
+      $("#group__" + data.group_id + "> .chat-nav__group__list__new-message").html(groupNewMessage);
       $(".chat__body").append(html);
       $(".chat__body").animate({
         scrollTop: $(".chat__body")[0].scrollHeight
       }, "fast");
-      $("#group__" + data.group_id + "> .chat-nav__group__list__new-message").html(groupNewMessage);
     })
     .fail(function () {
       alert('error');
