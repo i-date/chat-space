@@ -34,16 +34,15 @@
   overflow-y      : scroll;
   width           : 100%;
   height          : calc( 100% - #{$chat-nav__header-height} );
-  background-color: #2F3E51;
-  @include scroll-bar;
+  background-color: $chat-nav__back-color;
 
   &__list {
     display         : block;
     width           : 100%;
     padding         : 20px $chat-nav__padding--lateral;
-    background-color: #2F3E51;
+    background-color: $chat-nav__back-color;
     text-decoration : none;
-    @include hover(0.9);
+    @include hover(10%);
 
     &__group-name {
       margin-bottom: 5px;
