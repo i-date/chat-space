@@ -4,5 +4,5 @@
   %span.chat__body__list__creation-time
     = format_posted_time(message.created_at)
   .chat__body__list__message
-    %div= message.body if message.body.present?
+    .chat__body__list__message__body= message.body if message.body.present?
     = image_tag message.image.url if message.image.present?
