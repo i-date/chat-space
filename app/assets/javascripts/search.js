@@ -1,21 +1,21 @@
 $(function() {
-  var search_field = $("#user-search-field");
-  var search_result = $("#user-search-result");
-  var group_member = $("#chat-group-users")
+  var searchField = $("#user-search-field");
+  var searchResult = $("#user-search-result");
+  var groupMember = $("#chat-group-users")
 
   function appendUser(user) {
     var html = `<div class="chat-group-user clearfix">
                   <p class="chat-group-user__name">${ user.name }</p>
                   <a class="user-search-add chat-group-user__btn chat-group-user__btn--add" data-user-id="${ user.id }" data-user-name="${ user.name }">追加</a>
                 </div>`
-    search_result.append(html);
+    searchResult.append(html);
   }
 
   function appendNoUser(notice) {
     var html = `<div class="chat-group-user clearfix">
                   <p class="chat-group-user__name">${ notice }</p>
                 </div>`
-    search_result.append(html);
+    searchResult.append(html);
   }
 
   function appendMember(member) {
@@ -24,21 +24,21 @@ $(function() {
                   <p class='chat-group-user__name'>${ member.name }</p>
                   <a class='user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn'>削除</a>
                 </div>`
-    group_member.append(html);
+    groupMember.append(html);
   }
 
-  search_field.on("keyup", function() {
-    var input_name = search_field.val();
+  searchField.on("keyup", function() {
+    var inputName = searchField.val();
 
-    if (input_name.length) {
+    if (inputName.length) {
       $.ajax({
         url: '/users',
         type: "GET",
-        data: { members: input_name },
+        data: { members: inputName },
         dataType: 'json'
       })
       .done(function (users) {
-        search_result.empty();
+        searchResult.empty();
         if (users.length !== 0) {
           users.forEach(function (user) {
             appendUser(user);
@@ -52,7 +52,7 @@ $(function() {
         alert('ユーザー検索に失敗しました');
       })
     } else {
-      search_result.empty();
+      searchResult.empty();
     }
   })
 
