@@ -60,7 +60,6 @@ $(function() {
     var member = {};
     member.id = $(this).attr("data-user-id");
     member.name = $(this).attr("data-user-name");
-    console.log(member);
     $(this).parent().remove();
     appendMember(member);
   })
