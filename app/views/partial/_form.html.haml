@@ -1,4 +1,4 @@
-= form_for group do |f|
+= form_for @group do |f|
   - if group.errors.any?
     .chat-group-form__errors
       %h2= "#{group.errors.full_messages.count}件のエラーが発生しました。"
@@ -27,8 +27,9 @@
       #chat-group-users
         - @group.users.each do |user|
           .chat-group-user.clearfix{ id: "chat-group-user-#{user.id}" }
-            = f.hidden_field :member, name: 'chat_group[user_ids][]', value: "#{user.id}"
+            = f.hidden_field :member, name: 'group[user_ids][]', value: "#{user.id}"
             %p.chat-group-user__name= user.name
+            = content_tag :a, '削除', class: 'user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn'
 
   .chat-group-form__field.clearfix
     .chat-group-form__field--left
