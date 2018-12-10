@@ -14,7 +14,7 @@
     .chat__header__group-info
       .chat__header__group-info__name= @group.name
       .chat__header__group-info__member= "Menbers: #{@members}"
-    = link_to "Edit", edit_group_path(:group_id), class: "chat__header__group-edit-btn"
+    = link_to "Edit", edit_group_path(@group.id), class: "chat__header__group-edit-btn"
   .chat__body
     = render partial: "partial/chat_messages", collection: @messages, as: "message"
   = form_for [@group, @message], html: { id: "message-form", class: "chat__footer" } do |f|
