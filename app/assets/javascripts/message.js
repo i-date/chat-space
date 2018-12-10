@@ -1,4 +1,13 @@
 $(function () {
+  var groupId;
+  var groupUrl;
+  var latestMessage;
+  var latestMessageBody;
+  var messageContent;
+  var latestMessageId;
+  var intervalChangeFlag = [];
+  intervalChangeFlag.push(setIntervalMessage = setInterval(getMessages, 5000));
+
   function buildHTML(message) {
     var html = `<li class="chat__body__list" id="message__${message.message_id}">
                   <span class="chat__body__list__user-name">${ message.user_name }</span>
@@ -44,4 +53,44 @@ $(function () {
       $("#message-form")[0].reset();
     });
   })
+
+  function getMessages() {
+    groupUrl = $(location).attr("href").match(/\/groups\/\d+\/messages/);
+    if (groupUrl !== null) {
+      groupId = groupUrl[0].match(/\d+/);
+      latestMessageId = $(".chat__body > li").length ? $(".chat__body > li:last-child").attr("id").replace(/message__/, "") : "";
+
+      $.ajax({
+        url: groupUrl[0],
+        type: "GET",
+        data: {
+          group_id         : groupId[0],
+          latest_message_id: latestMessageId
+        },
+        dataType: "json"
+      })
+
+      .done(function (messages) {
+        if (messages.length) {
+          latestMessageBody = messages[messages.length - 1].body;
+          latestMessage = latestMessageBody.length ? latestMessageBody : "画像が投稿されています";
+          $("#group__" + groupId[0] + "> .chat-nav__group__list__new-message").html(latestMessage);
+
+          messages.forEach(function (message) {
+            messageContent = buildHTML(message);
+            $(".chat__body").append(messageContent);
+          });
+
+          $(".chat__body").animate({
+            scrollTop: $(".chat__body")[0].scrollHeight
+          }, "fast");
+        }
+      })
+
+      .fail(function () {
+        clearInterval(intervalChangeFlag.shift());
+        alert("メッセージの自動更新ができませんでした");
+      })
+    }
+  }
 })
