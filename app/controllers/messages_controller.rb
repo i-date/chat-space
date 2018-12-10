@@ -3,7 +3,7 @@ class MessagesController < ApplicationController
 
   def index
     @message = Message.new
-    @messages = @group.messages.includes(:user)
+    @messages = latest_message_params.present? ? @group.messages.where("id > ?", latest_message_params[:latest_message_id]).includes(:user) : @group.messages.includes(:user)
     @members = group_member(@group)
     respond_to do |format|
       format.html
@@ -29,6 +29,10 @@ class MessagesController < ApplicationController
 
   def message_params
     params.require(:message).permit(:body, :image).merge(user_id: current_user.id)
+  end
+
+  def latest_message_params
+    params.permit(:latest_message_id)
   end
 
   def set_group
