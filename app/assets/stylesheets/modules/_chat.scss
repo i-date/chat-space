@@ -56,7 +56,6 @@
   height          : calc(100% - #{$chat__header-height} - #{$chat__footer-height});
   background-color: #FAFAFA;
   padding         : 26px $chat__padding--lateral;
-  @include scroll-bar;
 
   &__list {
     width    : 100%;
@@ -142,5 +141,15 @@
     background-color: $blue;
     color           : $font--white;
     @include hover();
+  }
+}
+
+.scrollbar {
+  @include scroll-bar;
+}
+
+.hide-scrollbar {
+  &::-webkit-scrollbar{
+    display: none;
   }
 }
