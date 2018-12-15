@@ -43,7 +43,6 @@ group :development, :test do
   gem 'rails-controller-testing'
   gem 'factory_girl_rails', '~> 4.0'
   gem 'faker'
-  gem "haml-rails", "~> 1.0"
 end
 
 group :development do
@@ -56,6 +55,10 @@ group :development do
   gem 'erb2haml'
 end
 
+group :production do
+  gem 'unicorn'
+end
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
@@ -63,3 +66,4 @@ gem 'font-awesome-sass', '~> 5.5.0'
 gem 'devise'
 gem 'carrierwave', '~> 1.0'
 gem 'mini_magick'
+gem "haml-rails", "~> 1.0"
