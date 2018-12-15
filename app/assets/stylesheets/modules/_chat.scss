@@ -50,7 +50,7 @@
 
 .chat__body {
   overflow-y      : scroll;
-  overflow-x      : hidden;
+  overflow-x      : auto;
   position        : absolute;
   top             : $chat__header-height;
   width           : 100%;
