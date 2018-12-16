@@ -61,3 +61,4 @@ yarn-debug.log*
 !/storage/.keep
 
 /public/uploads/*
+config/secrets.yml
