@@ -9,13 +9,15 @@ $(function () {
   intervalChangeFlag.push(setIntervalMessage = setInterval(getMessages, 5000));
 
   function buildHTML(message) {
-    var html = `<li class="chat__body__list" id="message__${message.message_id}">
+    var messageBody = message.body.length ? message.body : "";
+    var messegeImage = message.image_url.length ? `<img src="${ message.image_url }">` : ``;
+    var html = `<li class="chat__body__list" id="message__${ message.message_id }">
                   <span class="chat__body__list__user-name">${ message.user_name }</span>
                   <span class="chat__body__list__creation-time">${ message.created_at }</span>
-                  <div class="chat__body__list__message">`
-                    + `<div class="chat__body__list__message__body">${message.body}</div>`
-                    + `${message.image_url ? `<img src="${message.image_url}">` : ``}`
-                  + `</div>
+                  <div class="chat__body__list__message">
+                    <div class="chat__body__list__message__body">${ messageBody }</div>
+                    ${ messegeImage }
+                  </div>
                 </li>`
     return html;
   }
@@ -34,14 +36,14 @@ $(function () {
       contentType: false
     })
 
-    .done(function (data) {
-      var html = buildHTML(data);
-      var groupNewMessage = data.body.length ? data.body : "画像が投稿されています";
-      $("#group__" + data.group_id + "> .chat-nav__group__list__new-message").html(groupNewMessage);
+    .done(function (newMessage) {
+      // サイドメニュー（グループ）の最新メッセージ更新
+      var groupNewMessage = newMessage.body.length ? newMessage.body : "画像が投稿されています";
+      $("#group__" + newMessage.group_id + "> .chat-nav__group__list__new-message").html(groupNewMessage);
+      // 新規投稿メッセージ・イメージの追加
+      var html = buildHTML(newMessage);
       $(".chat__body").append(html);
-      $(".chat__body").animate({
-        scrollTop: $(".chat__body")[0].scrollHeight
-      }, "fast");
+      $(".chat__body").animate({ scrollTop: $(".chat__body")[0].scrollHeight }, "fast");
     })
 
     .fail(function () {
