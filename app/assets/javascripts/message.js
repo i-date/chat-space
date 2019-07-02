@@ -78,7 +78,6 @@ $(function () {
           latestMessageBody = messages[messages.length - 1].body;
           latestMessage = latestMessageBody.length ? latestMessageBody : "画像が投稿されています";
           $("#group__" + groupId[0] + "> .chat-nav__group__list__new-message").html(latestMessage);
-
           // 最新メッセージ・イメージの追加
           messages.forEach(function (message) {
             messageContent = buildHTML(message);
