@@ -1,7 +1,7 @@
 $(function() {
   var searchField = $("#user-search-field");
   var searchResult = $("#user-search-result");
-  var groupMember = $("#chat-group-users")
+  var groupMember = $("#chat-group-users");
 
   function appendUser(user) {
     var html = `<div class="chat-group-user clearfix">
@@ -33,7 +33,7 @@ $(function() {
     if (inputName.length) {
       $.ajax({
         url: '/users',
-        type: "GET",
+        type: 'GET',
         data: { members: inputName },
         dataType: 'json'
       })
@@ -49,7 +49,7 @@ $(function() {
         }
       })
       .fail(function () {
-        alert('ユーザー検索に失敗しました');
+        alert("ユーザー検索に失敗しました");
       })
     } else {
       searchResult.empty();
@@ -58,8 +58,8 @@ $(function() {
 
   $(document).on("click", ".user-search-add.chat-group-user__btn.chat-group-user__btn--add", function () {
     var member = {};
-    member.id = $(this).attr("data-user-id");
-    member.name = $(this).attr("data-user-name");
+    member.id = $(this).data("user-id");
+    member.name = $(this).data("user-name");
     $(this).parent().remove();
     appendMember(member);
   })
