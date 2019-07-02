@@ -36,14 +36,14 @@ $(function () {
       contentType: false
     })
 
-    .done(function (data) {
-      var html = buildHTML(data);
-      var groupNewMessage = data.body.length ? data.body : "画像が投稿されています";
-      $("#group__" + data.group_id + "> .chat-nav__group__list__new-message").html(groupNewMessage);
+    .done(function (newMessage) {
+      // サイドメニュー（グループ）の最新メッセージ更新
+      var groupNewMessage = newMessage.body.length ? newMessage.body : "画像が投稿されています";
+      $("#group__" + newMessage.group_id + "> .chat-nav__group__list__new-message").html(groupNewMessage);
+      // 新規投稿メッセージ・イメージの追加
+      var html = buildHTML(newMessage);
       $(".chat__body").append(html);
-      $(".chat__body").animate({
-        scrollTop: $(".chat__body")[0].scrollHeight
-      }, "fast");
+      $(".chat__body").animate({ scrollTop: $(".chat__body")[0].scrollHeight }, "fast");
     })
 
     .fail(function () {
