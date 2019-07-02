@@ -9,13 +9,15 @@ $(function () {
   intervalChangeFlag.push(setIntervalMessage = setInterval(getMessages, 5000));
 
   function buildHTML(message) {
-    var html = `<li class="chat__body__list" id="message__${message.message_id}">
+    var messageBody = message.body.length ? message.body : "";
+    var messegeImage = message.image_url.length ? `<img src="${ message.image_url }">` : ``;
+    var html = `<li class="chat__body__list" id="message__${ message.message_id }">
                   <span class="chat__body__list__user-name">${ message.user_name }</span>
                   <span class="chat__body__list__creation-time">${ message.created_at }</span>
-                  <div class="chat__body__list__message">`
-                    + `<div class="chat__body__list__message__body">${message.body}</div>`
-                    + `${message.image_url ? `<img src="${message.image_url}">` : ``}`
-                  + `</div>
+                  <div class="chat__body__list__message">
+                    <div class="chat__body__list__message__body">${ messageBody }</div>
+                    ${ messegeImage }
+                  </div>
                 </li>`
     return html;
   }
